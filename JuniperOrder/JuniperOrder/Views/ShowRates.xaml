@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JuniperOrder.Views.ShowRates">
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <BoxView HeightRequest="20"/>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label FontSize="10" Grid.Row="0" Grid.Column="0" Text="City"></Label>
+                <Label FontSize="10" Grid.Row="1" Grid.Column="0" Text="City Rate"></Label>
+                <Label FontSize="10" Grid.Row="2" Grid.Column="0" Text="Combined District Rate"></Label>
+                <Label FontSize="10" Grid.Row="3" Grid.Column="0" Text="Combined Rate"></Label>
+                <Label FontSize="10" Grid.Row="4" Grid.Column="0" Text="Country"></Label>
+                <Label FontSize="10" Grid.Row="5" Grid.Column="0" Text="Country Rate"></Label>
+                <Label FontSize="10" Grid.Row="6" Grid.Column="0" Text="County"></Label>
+                <Label FontSize="10" Grid.Row="7" Grid.Column="0" Text="County Rate"></Label>
+                <Label FontSize="10" Grid.Row="8" Grid.Column="0" Text="Freight Taxable"></Label>
+                <Label FontSize="10" Grid.Row="9" Grid.Column="0" Text="State"></Label>
+                <Label FontSize="10" Grid.Row="10" Grid.Column="0" Text="State Rate"></Label>
+                <Label FontSize="10" Grid.Row="11" Grid.Column="0" Text="Zip"></Label>
+
+                <Label TextColor="Black" FontSize="10" Grid.Row="0"   Grid.Column="1" Text="{Binding rate.city}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="1"   Grid.Column="1" Text="{Binding rate.city_rate}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="2"   Grid.Column="1" Text="{Binding rate.combined_district_rate}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="3"   Grid.Column="1" Text="{Binding rate.combined_rate}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="4"   Grid.Column="1" Text="{Binding rate.country}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="5"   Grid.Column="1" Text="{Binding rate.country_rate}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="6"   Grid.Column="1" Text="{Binding rate.county}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="7"   Grid.Column="1" Text="{Binding rate.county_rate}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="8"   Grid.Column="1" Text="{Binding rate.freight_taxable}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="9"   Grid.Column="1" Text="{Binding rate.state}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="10"  Grid.Column="1" Text="{Binding rate.state_rate}"></Label>
+                <Label TextColor="Black" FontSize="10" Grid.Row="11"  Grid.Column="1" Text="{Binding rate.zip}"></Label>
+
+            </Grid>
+
+            <Button Text="Quit" Clicked="QuitClicked"></Button>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

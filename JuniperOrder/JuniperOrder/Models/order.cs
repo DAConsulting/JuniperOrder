@@ -5,6 +5,7 @@ namespace JuniperOrder.Models
 {
    public class order
    {
+      // window dressing...
       public string Id { get; set; }
       public string Text { get; set; }
       public string Description { get; set; }
@@ -22,11 +23,17 @@ namespace JuniperOrder.Models
       public string to_street { get; set; }
       public double amount { get; set; }
       public double shipping { get; set; }
+      public double tax {  get;set; }
 
       // nexus addresses
       public List<nexus_address> nexus_addresses => new List<nexus_address>();
 
       // line items
-      public List<line_item> line_items => new List<line_item>();
+      private List<line_item> _line_items = new List<line_item>();
+      public List<line_item> line_items
+      {
+         get => _line_items;
+         set { _line_items = value; }
+      }
    }
 }

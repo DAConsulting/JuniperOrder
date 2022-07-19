@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 
 namespace JuniperOrder.Services
 {
+   /// <summary>
+   /// Mimics a DB of some sort
+   /// </summary>
+   /// <typeparam name="T">the class of the object being stored</typeparam>
    public interface IDataStore<T>
    {
       Task<bool> AddItemAsync(T item);

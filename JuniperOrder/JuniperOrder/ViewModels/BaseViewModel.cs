@@ -8,6 +8,9 @@ using Xamarin.Forms;
 
 namespace JuniperOrder.ViewModels
 {
+   // 
+   // Some generic stuff for any view model...
+   //
    public class BaseViewModel : INotifyPropertyChanged
    {
       public IDataStore<order> DataStore => DependencyService.Get<IDataStore<order>>();
