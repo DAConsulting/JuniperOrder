@@ -10,7 +10,7 @@ namespace JuniperOrder.ViewModels
 {
    public class BaseViewModel : INotifyPropertyChanged
    {
-      public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+      public IDataStore<order> DataStore => DependencyService.Get<IDataStore<order>>();
 
       bool isBusy = false;
       public bool IsBusy

@@ -10,20 +10,20 @@ namespace JuniperOrder.ViewModels
 {
    public class ItemsViewModel : BaseViewModel
    {
-      private Item _selectedItem;
+      private order _selectedItem;
 
-      public ObservableCollection<Item> Items { get; }
+      public ObservableCollection<order> Items { get; }
       public Command LoadItemsCommand { get; }
       public Command AddItemCommand { get; }
-      public Command<Item> ItemTapped { get; }
+      public Command<order> ItemTapped { get; }
 
       public ItemsViewModel()
       {
          Title = "Browse";
-         Items = new ObservableCollection<Item>();
+         Items = new ObservableCollection<order>();
          LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-         ItemTapped = new Command<Item>(OnItemSelected);
+         ItemTapped = new Command<order>(OnItemSelected);
 
          AddItemCommand = new Command(OnAddItem);
       }
@@ -57,7 +57,7 @@ namespace JuniperOrder.ViewModels
          SelectedItem = null;
       }
 
-      public Item SelectedItem
+      public order SelectedItem
       {
          get => _selectedItem;
          set
@@ -72,7 +72,7 @@ namespace JuniperOrder.ViewModels
          await Shell.Current.GoToAsync(nameof(NewItemPage));
       }
 
-      async void OnItemSelected(Item item)
+      async void OnItemSelected(order item)
       {
          if (item == null)
             return;

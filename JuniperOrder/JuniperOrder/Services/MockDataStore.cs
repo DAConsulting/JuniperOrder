@@ -6,33 +6,30 @@ using System.Threading.Tasks;
 
 namespace JuniperOrder.Services
 {
-   public class MockDataStore : IDataStore<Item>
+   public class MockDataStore : IDataStore<order>
    {
-      readonly List<Item> items;
+      readonly List<order> items;
 
       public MockDataStore()
       {
-         items = new List<Item>()
+         items = new List<order>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new order { Id = Guid.NewGuid().ToString(), Text = "Order one", Description="Description for order one." },
+                new order { Id = Guid.NewGuid().ToString(), Text = "Order two", Description="Description for order two." },
+                new order { Id = Guid.NewGuid().ToString(), Text = "Order three", Description="Description for order three." }
             };
       }
 
-      public async Task<bool> AddItemAsync(Item item)
+      public async Task<bool> AddItemAsync(order item)
       {
          items.Add(item);
 
          return await Task.FromResult(true);
       }
 
-      public async Task<bool> UpdateItemAsync(Item item)
+      public async Task<bool> UpdateItemAsync(order item)
       {
-         var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+         var oldItem = items.Where((order arg) => arg.Id == item.Id).FirstOrDefault();
          items.Remove(oldItem);
          items.Add(item);
 
@@ -41,18 +38,18 @@ namespace JuniperOrder.Services
 
       public async Task<bool> DeleteItemAsync(string id)
       {
-         var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+         var oldItem = items.Where((order arg) => arg.Id == id).FirstOrDefault();
          items.Remove(oldItem);
 
          return await Task.FromResult(true);
       }
 
-      public async Task<Item> GetItemAsync(string id)
+      public async Task<order> GetItemAsync(string id)
       {
          return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
       }
 
-      public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+      public async Task<IEnumerable<order>> GetItemsAsync(bool forceRefresh = false)
       {
          return await Task.FromResult(items);
       }
